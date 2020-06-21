@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pig Latin Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="pigLatin.js"></script>
+</head>
+<body>
+
+<div id="main">
+    <h1>Pig Latin Translator</h1>
+    <p>Welcome to my Pig Latin Translator. This started out as an exercise in a Ruby lesson I was taking. After completing the exercise, I decided to port it to Javascript so I can make it into a web page. Now that I think of it, though, I'm also studying Ruby on Rails and could have just used the same code in a Rails project.</p>
+
+    <p>Othermay uckerfay.</p>
+
+    <p>Anyway. Enter some text in the box on the left, click the Translate button, and witness the wonder of pig latin.</p>
+
+    <div id="translator">
+            <button id="btn_translate" name="submit" onclick="translateArea()">Translate!</button><br>
+            <textarea name="original_text" id="original_text" cols="50" rows="20" spellcheck="false">Just some sample text to get the ball rolling.</textarea>
+            <textarea name="translated_text" id="translated_text" cols="50" rows="20" spellcheck="false"></textarea>
+
+    </div>
+</div>
+
+</body>
+</html>

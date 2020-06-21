@@ -1,0 +1,40 @@
+body {
+    font-size: 1.25em;
+    font-family: "Helvetica", "Arial", sans-serif;
+    background-color: #ffffff;
+    color: #6B7A8F;
+}
+
+#main {
+    width: 80%;
+    margin: auto;
+}
+
+textarea {
+    font-size: 1em;
+    background-color: #DCC7AA;
+    border: none;
+    padding: 15px;
+}
+
+#btn_translate {
+    margin: 10px 5px 2px 0;
+    font-size: 1em;
+    padding: 5px 15px;
+    background-color: #DCC7AA;
+    cursor: pointer;
+    border: none;
+}
+
+#btn_translate:hover {
+    background-color: #F7C331;
+}
+  
+#btn_translate:active {
+    background-color: #F7882F;
+    border: none;
+}
+
+#btn_translate:focus {
+    border: none;
+}
