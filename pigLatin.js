@@ -29,7 +29,8 @@ function pigLatinWord(word) {
     var punct, possessive, suffix, main, front, newWord;
     var capitalized = false
     
-    if (word != "") {
+    // If the "word" is empty or begins with punctuation, just send it as is.
+    if (word != "" && !isPunct(word[0])) {
         capitalized = word[0] == word[0].toUpperCase();
 
         word = word.toLowerCase();
@@ -41,47 +42,30 @@ function pigLatinWord(word) {
         newWord = main + front + (front === "" ? suffixVowel : suffixConsonant) + possessive + punct;
         newWord = capitalized ? newWord.charAt(0).toUpperCase() + newWord.slice(1) : newWord;
     } else {
-        newword = word;
+        newWord = word;
     }
     return newWord;
 }
 
+function isPunct(char) {
+    var puncts = ".;:!?,\/@#$%^&*()-=+_";
+    return puncts.indexOf(char) > -1;
+}
+
 function getPunct(word) {
-    var puncts = ".;:!?,\/@#$%^&*()-=+_"
+    var puncts = ".;:!?,\/@#$%^&*()-=+_";
     var outWord = word;
 
     var i = word.length -1;
     var punct = "";
-    // var punctPosition = -1;
 
-    if (puncts.indexOf(word[word.length - 1]) > -1) {
-        while (puncts.indexOf(word[i]) > -1) {
+    if (isPunct(word[word.length - 1])) {
+        while (isPunct(word[i])) {
             punct += word[i];
             i--;
         }
            outWord = word.slice(0, word.length - punct.length);
     }
-
-
-    // if (puncts.indexOf(word[word.length - 1]) > -1) {
-        
-    // }
-
-
-    // for (i = word.length - 1; i >= 0; i--) {
-    //     var isPunct = puncts.indexOf(word[i]) > -1;
-
-    //     if (isPunct) {
-    //         punctPosition = i;
-    //         break;
-    //     }
-    // }
-
-    // if (punctPosition > -1) {
-    //     outWord = word.slice(0, punctPosition);
-    //     punct = word.slice(punctPosition);
-    // }
-
     return [outWord, punct];
 }
 
