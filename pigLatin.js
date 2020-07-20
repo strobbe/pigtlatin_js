@@ -1,14 +1,14 @@
 "user strict";
 
 function translateArea() {
-    var originalTextArea = document.getElementById("original_text");
-    var translateTextArea = document.getElementById("translated_text");
+    const originalTextArea = document.getElementById("original_text");
+    const translateTextArea = document.getElementById("translated_text");
 
     translateTextArea.value = pigLatinBody(originalTextArea.value);
 }
 
 function pigLatinBody(body) {
-    var paragraphs, outParagraphs;
+    let paragraphs, outParagraphs;
 
     paragraphs = body.split('\n');
     outParagraphs = paragraphs.map( paragraphc => pigLatinSentence(paragraphc));
@@ -16,7 +16,7 @@ function pigLatinBody(body) {
 }
 
 function pigLatinSentence(sentence) {
-    var words, outWords;
+    let words, outWords;
 
     words = sentence.split(' ');
     outWords = words.map( word => pigLatinWord(word));
@@ -24,10 +24,10 @@ function pigLatinSentence(sentence) {
 }
 
 function pigLatinWord(word) {
-    var suffixVowel = "yay";
-    var suffixConsonant = "ay";
-    var punct, possessive, suffix, main, front, newWord;
-    var capitalized = false
+    const suffixVowel = "yay";
+    const suffixConsonant = "ay";
+    let punct, possessive, suffix, main, front, newWord;
+    let capitalized = false
     
     // If the "word" is empty or begins with punctuation, just send it as is.
     if (word != "" && !isPunct(word[0])) {
@@ -48,16 +48,16 @@ function pigLatinWord(word) {
 }
 
 function isPunct(char) {
-    var puncts = ".;:!?,\/@#$%^&*()-=+_";
+    const puncts = ".;:!?,\/@#$%^&*()-=+_";
     return puncts.indexOf(char) > -1;
 }
 
 function getPunct(word) {
-    var puncts = ".;:!?,\/@#$%^&*()-=+_";
-    var outWord = word;
+    const puncts = ".;:!?,\/@#$%^&*()-=+_";
+    let outWord = word;
 
-    var i = word.length -1;
-    var punct = "";
+    let i = word.length -1;
+    let punct = "";
 
     if (isPunct(word[word.length - 1])) {
         while (isPunct(word[i])) {
@@ -70,8 +70,8 @@ function getPunct(word) {
 }
 
 function getPartsNewWord(word) {
-    var part1, part2;
-    var outParts = [];
+    let part1, part2;
+    let outParts = [];
 
     word = word.toLowerCase();
 
@@ -93,9 +93,9 @@ function getPartsNewWord(word) {
 }
 
 function splitByVowel(word) {
-    var part1, part2;
+    let part1, part2;
+    const wordArray = word.split('');
 
-    wordArray = word.split('');
     idx = findFirstVowel(wordArray);
 
     part2 = wordArray.slice(0, idx).join('');
@@ -105,7 +105,7 @@ function splitByVowel(word) {
 }
 
 function getPossessive(word) {
-    var possessive = "";
+    let possessive = "";
 
     if (word.slice(-2).toLowerCase() == "'s") {
         word = word.slice(0, -2);
@@ -115,10 +115,10 @@ function getPossessive(word) {
 }
 
 function findFirstVowel(word) {
-    var vowels = "aeiouy";
-    var letter;
+    const vowels = "aeiouy";
+    let letter;
 
-    for (var i=0; i < word.length; i++) {
+    for (let i=0; i < word.length; i++) {
         letter = word[i].toLowerCase();
 
         if (vowels.indexOf(letter) > -1) {
